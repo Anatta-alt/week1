@@ -12,8 +12,12 @@ namespace week1.Controllers
         public int Price { get; private set; }
 
         [HttpGet("SpecCar")]
-        public IActionResult SpecCar(string Brand, string Model, int Year, string Fuel, string Gear, string Color)
+        public IActionResult SpecCar(string Brand, string Model, int Year)
         {
+            
+    
+
+
             var CarList = new List<Car>();
 
 
@@ -50,7 +54,7 @@ namespace week1.Controllers
                 Model = "Almera",
                 Year = 2014,
                 Fuel = "Gasohol",
-                Gear = "Manul",
+                Gear = "Manual",
                 Color = "Red",
                 Price = 270800,
                 Issell = false,
@@ -63,7 +67,7 @@ namespace week1.Controllers
                 Model = "Ranger",
                 Year = 2018,
                 Fuel = "Desel",
-                Gear = "Manul",
+                Gear = "Manual",
                 Color = "Orange",
                 Price = 450000,
                 Issell = true,
@@ -128,7 +132,7 @@ namespace week1.Controllers
                 Model = "V-Cross",
                 Year = 2014,
                 Fuel = "Desel",
-                Gear = "Manul",
+                Gear = "Manual",
                 Color = "Red",
                 Price = 769000,
                 Issell = true,
@@ -148,34 +152,45 @@ namespace week1.Controllers
             });
 
             var query = CarList;
-            if (Brand != null)
-            {
-                query = query.Where(x => x.Brand.Contains(Brand)).ToList();
+
+            //TODO:Validation
+            if(Brand != null){
+                query = query.Where(x => x.Year >= Year && x.Year <= Year).ToList();
+            } else {
+                return NotFound("Brand valid");
             }
-            if (Model != null)
-            {
+
+            if(Model != null){
                 query = query.Where(x => x.Model.Contains(Model)).ToList();
+            } else {
+                return NotFound("Model valid");
             }
-            if (Year >= 1800 && Year <= 2500)
-            {
-                query = query.Where(x => x.Year >= 1800 && x.Year <= 2500).ToList();
+
+            if(Year >= 1800 && Year <= 2500){
+                query = query.Where(x => x.Year >= Year && x.Year <= Year).ToList();
+            } else {
+                return NotFound("Year valid");
             }
-            if (Fuel != null)
-            {
-                query = query.Where(x => x.Fuel.Contains(Fuel)).ToList();
-            }
-            if (Gear != null)
-            {
-                query = query.Where(x => x.Gear.Contains(Gear)).ToList();
-            }
-            if (Color != null)
-            {
-                query = query.Where(x => x.Color.Contains(Color)).ToList();
-            }
-            if (Price > 1 && Price <= 200000000)
-            {
-                query = query.Where(x => x.Price >= 1 && x.Price <= 200000000).ToList();
-            }
+
+            // if(Fuel != null){
+            //     query = query.Where(x => x.Fuel.Contains(Fuel)).ToList();
+            // } else {
+            //     return NotFound("Fuel valid");
+            // }
+
+            // if(Gear != null){
+            //    query = query.Where(x => x.Gear.Contains(Gear)).ToList();
+            // } else {
+            //     return NotFound("Gear valid");
+            // }
+
+            // if(Price != 0){
+            //     query = query.Where(x => x.Price == Price).ToList();
+            // } else {
+            //     return NotFound("Price valid");
+            // }
+
+
             // var searchResult = CarList.Where(x => x.Price >= 200000 && x.Price <= 2000000 ).ToList();
 
             return Ok(query);
