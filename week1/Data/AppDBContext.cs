@@ -38,5 +38,15 @@ namespace week1.Data
         public DbSet<Role> Roles { get; set; }
 
         public DbSet<UserRole> UserRoles { get; set; }
+
+        //<Book> ชื่อที่มาจาก Model
+        public DbSet<Book> Books { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<House> Houses { get; set; }
+        public DbSet<Login> Logins { get; set; }
     }
 }

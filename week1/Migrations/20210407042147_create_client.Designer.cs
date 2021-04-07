@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using week1.Data;
 
 namespace week1.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210407042147_create_client")]
+    partial class create_client
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -136,95 +138,6 @@ namespace week1.Migrations
                     b.ToTable("Customer","sale");
                 });
 
-            modelBuilder.Entity("week1.Models.Employee", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("IdCard")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(13)")
-                        .HasMaxLength(13);
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("week1.Models.House", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("HouseDistric")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Number")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
-
-                    b.Property<string>("RoadName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Houses");
-                });
-
-            modelBuilder.Entity("week1.Models.Login", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Logins");
-                });
-
             modelBuilder.Entity("week1.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -243,22 +156,22 @@ namespace week1.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("559802c7-86a3-419a-8592-ceb77586c18c"),
+                            Id = new Guid("69c6b657-d7ac-4e88-9391-f71b56dcbaac"),
                             Name = "user"
                         },
                         new
                         {
-                            Id = new Guid("9cdf75bf-2aec-4c2c-8323-7a755d1a9126"),
+                            Id = new Guid("9c31f08f-0748-43ff-9cf0-a66034cf2c4e"),
                             Name = "Manager"
                         },
                         new
                         {
-                            Id = new Guid("54ee5a17-e756-4dbe-8d70-232114564d1c"),
+                            Id = new Guid("f353ae95-ecf2-401a-9133-7f648b78b6d4"),
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("db50f6c4-9cbb-4e83-a976-f64d7db43d64"),
+                            Id = new Guid("d7c82575-c2ec-4065-9016-274956ff8375"),
                             Name = "Developer"
                         });
                 });

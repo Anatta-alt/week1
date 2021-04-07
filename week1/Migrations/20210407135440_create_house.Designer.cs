@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using week1.Data;
 
 namespace week1.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210407135440_create_house")]
+    partial class create_house
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,33 +200,6 @@ namespace week1.Migrations
                     b.ToTable("Houses");
                 });
 
-            modelBuilder.Entity("week1.Models.Login", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Logins");
-                });
-
             modelBuilder.Entity("week1.Models.Role", b =>
                 {
                     b.Property<Guid>("Id")
@@ -243,22 +218,22 @@ namespace week1.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("559802c7-86a3-419a-8592-ceb77586c18c"),
+                            Id = new Guid("77259142-530f-4b97-88fd-b4a8a7cf4294"),
                             Name = "user"
                         },
                         new
                         {
-                            Id = new Guid("9cdf75bf-2aec-4c2c-8323-7a755d1a9126"),
+                            Id = new Guid("ea1ed5ec-31eb-4f28-aaae-0d8a6974b255"),
                             Name = "Manager"
                         },
                         new
                         {
-                            Id = new Guid("54ee5a17-e756-4dbe-8d70-232114564d1c"),
+                            Id = new Guid("7977dddd-4ea7-4315-90de-5c3bb34c91a0"),
                             Name = "Admin"
                         },
                         new
                         {
-                            Id = new Guid("db50f6c4-9cbb-4e83-a976-f64d7db43d64"),
+                            Id = new Guid("42746187-92d3-4ca4-90e1-b3d36dcaeb05"),
                             Name = "Developer"
                         });
                 });

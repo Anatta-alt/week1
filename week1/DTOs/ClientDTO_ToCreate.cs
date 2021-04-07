@@ -1,14 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace week1.Models
+namespace week1.DTOs
 {
-    public class Client
+    public class ClientDTO_ToCreate
     {
-         [Key]
-        [Required(ErrorMessage="Id ReRequired")]
-        [Range(1 , 10, ErrorMessage="ID Between 1-10")]
-        public int Id { get; set; }
-
+        
         [Required(ErrorMessage="FirstName ReRequired")]
         [StringLength(50,ErrorMessage="Must be under 50 characters")]
         public string UserName { get; set; }
@@ -20,7 +16,5 @@ namespace week1.Models
         [Required(ErrorMessage="Password ReRequired")]
         [StringLength(8,ErrorMessage="Must be under 8 characters")]
         public string Password { get; set; }
-
-        
     }
 }

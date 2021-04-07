@@ -1,15 +1,13 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace week1.Models
+namespace week1.DTOs
 {
-    [Table("Customer", Schema = "sale")]
-    public class Customer
+    public class CustomerDTO_ToCreate
     {
-        [Key]
-        [Required(ErrorMessage="Id ReRequired")]
-        [Range(1 , 10, ErrorMessage="ID Between 1-10")]
-        public int Id { get; set; }
+        // [Key]
+        // [Required(ErrorMessage="Id ReRequired")]
+        // [Range(1 , 10, ErrorMessage="ID Between 1-10")]
+        // public int Id { get; set; }
 
         [Required(ErrorMessage="FirstName ReRequired")]
         [StringLength(100,ErrorMessage="Must be under 50 characters")]

@@ -1,13 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace week1.Models
+namespace week1.DTOs
 {
-    public class Employee
+    public class EmployeeDTO_ToCreate
     {
-        [Key]
-        [Required(ErrorMessage="Id ReRequired")]
-        [Range(1 , 10, ErrorMessage="ID Between 1-10")]
-        public int Id { get; set; }
+        // [Required(ErrorMessage="Id ReRequired")]
+        // public int Id { get; set; }
 
         [Required(ErrorMessage="FirstName ReRequired")]
         [StringLength(50,ErrorMessage="Must be under 50 characters")]
@@ -22,7 +20,8 @@ namespace week1.Models
         public int Age { get; set; }
 
         [Required(ErrorMessage="IdCard ReRequired")]
-        [StringLength(13,ErrorMessage="Must be under 50 characters")]
+        [StringLength(13,ErrorMessage="Must be under 13 characters")]
         public string IdCard { get; set; }
     }
+    
 }
